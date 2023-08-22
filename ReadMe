@@ -1,0 +1,113 @@
+TRUNCATE tblA;
+Q - What will be the outcome of this query?
+
+The relationships defined on this table with other tables, the integrity checks and constraints, access privileges and other grants that the table has are deleted along with the data in the table.
+
+How can you create an empty table from an existing table?
+
+SELECT \* INTO tblCopy from tbl WHERE 1=2;
+
+Q - Which query/queries will return alternate rows from a table containing customer data?
+
+Select customerId from (Select rowId, customerId from customer) where mod(rowId,2)=1
+
+Select customerId from (Select rowId, customerId from customer) where mod(rowId,2)=0
+
+Q - Which statements are true for INSERT triggers?
+
+INSERT triggers have access to NEW values only.
+
+BEFORE INSERT triggers can access and change the NEW values.
+
+AFTER INSERT triggers can only access but not change the NEW values.
+
+Q - Which privilege do you need to drop a stored procedure?
+
+ALTER ROUTINE
+
+Q - Choose the option/options that describe Database White Box Testing:
+
+Referential integrity rules
+Database consistency and ACID properties
+Decision Coverage, Condition Coverage, and Statement Coverage
+
+Q - Choose the option/options that describe Database Black Box Testing:
+
+Equivalence Partitioning and Boundary Value Analysis (BVA)
+Data Mapping
+Data stored and retrieved
+
+Q - Which statements are true for Heap tables?
+
+Heap tables are shared among clients.
+Heap tables use indexes.
+Heap tables last in memory till you restart your database.
+
+Q - Which single query will calculate the sum of all positive values of Score and the sum of all negative values of Score table?
+
+SELECT SUM(CASE WHEN Score > 0 THEN SCORE ELSE 0 END) PositiveScore, SUM(CASE WHEN Score < 0 THEN Score ELSE 0 END) NegativeScore FROM ScoreTable;
+
+Q - Suppose we have a Voters table having 1000 records. What will be the outcome when the following code is executed?
+
+START TRANSACTION;
+TRUNCATE TABLE Voters;
+ROLLBACK;
+SELECT \* FROM Voters;
+
+The query returns 1000 records because START TRANSACTION maintains a log.
+
+Q - Which MySQL statement will delete a table from database and free space in memory while keeping the structure of the table intact?
+TRUNCATE TABLE table_name;
+
+Consider the following queries which give the same result. Pick the most efficient.
+
+-   SELECT \* FROM table_name WHERE col1 = x OR col2 = y;
+
+    ---> SELECT _ FROM table_name WHERE col1 = x
+    UNION ALL
+    SELECT _ FROM table_name WHERE col2 = y AND col1 != x;
+
+SELECT _ FROM table_name WHERE col1 = x
+UNION DISTINCT
+SELECT _ FROM table_name WHERE col2 = y;
+
+Q - Which MySQL function assigns a sequential number to each row of a table that starts with one?
+
+ROW_NUMBER()
+
+Q - Suppose you perform an UPSERT i.e. a conditional update or insertion into a table. If a row exists, an UPDATE is done and if a row does not exist, an INSERT is performed. Which statement will you use?
+
+INSERT with ON DUPLICATE KEY UPDATE
+
+Q - How can we rotate rows of a table into columns in MySQL? In other words how can we take transpose of a row?
+
+Use CASE expression along with an aggregate function.
+
+Q - functions that can be used in MySQL to validate the format of a date?
+
+DAYNAME()
+STR_TO_DATE()
+TIMESTAMPDIFF()
+
+Q - How can you display the current date and time of the server?
+SYSDATE()
+NOW()
+
+Q - Which statements are true for MySQL TIMESTAMP datatype?
+
+The format of TIMESTAMP is YYYY-MM-DD HH:MM:SS.
+TIMESTAMP can store data from ‘1970-01-01 00:00:01’ UTC to ‘2038-01-19 03:14:07’ UTC.
+MySQL automatically converts the TIMESTAMP value from your connection’s time zone to UTC for storing.
+
+Q - Which of the following actions are possible with mysqldump tool?
+
+It can be used to make a backup of a single database in the MySQL server.
+It can be used to make a backup of all databases in the MySQL server in one go.
+It can be used to make a backup of selected tables from a database.
+It can be used to make a backup of database structure only.
+It can be used to make a backup of data only.
+
+Q - queries that will return the same date and time values
+
+SELECT SYSDATE(), NOW();
+SELECT NOW(), SLEEP(10), NOW();
