@@ -19,3 +19,7 @@ SELECT MIN(NetWorthInMillions) FROM Actors;
 -- Similarly, we can find the actor with the most net worth as follows:
 
 SELECT MAX(NetWorthInMillions) FROM Actors;
+
+-- We can find the income disparity among actors using the standard deviation function STD or STDDEV as follows:
+
+SELECT STDDEV(NetWorthInMillions) FROM Actors;

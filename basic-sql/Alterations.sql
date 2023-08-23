@@ -59,3 +59,12 @@ DROP TABLE IF EXISTS Table1, Table2, Table3;
 -- We can drop the entire database as follows:
 
 DROP DATABASE IF EXISTS MovieIndustry;
+
+-- We can combine several alterations in a single MySQL statement separated by comma. 
+-- In fact, combining alterations is much more efficient as it avoids the cost of creating a new table, 
+-- copying data from the old table to the new, dropping the old table, and renaming the old table to the new table for each alteration.
+--  In the example below, we drop the middle name column and recreate it using a slightly different column name, all in a single statement.
+
+
+ALTER TABLE Actors DROP MiddleName, ADD Middle_Name varchar(100);
+
