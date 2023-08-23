@@ -96,6 +96,8 @@ WHERE Name="Mr & Mrs. Smith") AS tbl
 
 ON tbl.ActorId = Id;
 
+# Question 3
+
 -   Print a list of movies and the actor(s) who participated in each movie ordered by movie name.
 
 -   The Cast table exactly does that; however, it lists integer IDs for actors and movies instead of actual names. We have to expand the IDs into names for both actors and movies. Let’s start by joining the Cast table with the Actors table on movie ID.
@@ -118,6 +120,8 @@ On Id = MovieId) AS tbl
 ON tbl.ActorId = Id
 
 ORDER BY tbl.Name ASC;
+
+# Question 4
 
 -   Print the count of actors in each movie.
 
@@ -155,6 +159,8 @@ FROM Cast
 GROUP BY MovieId) AS tbl
 
 ON tbl.MovieID = Id;
+
+# Question 5
 
 -   List the names of Producers who never produced a movie for Tom Cruise.
 
