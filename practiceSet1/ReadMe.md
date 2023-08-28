@@ -1,8 +1,12 @@
 # Practice Set
 
+# Question 1
+
 -   Write a query that prints the top three movies by box office collection?
 
 select \* from Movies order by CollectionInMillions desc limit 3;
+
+# Question 2
 
 -   Can you write a query to determine if any two actors share the same second name?
 
@@ -34,6 +38,8 @@ INNER JOIN Actors b
 ON a.SecondName = b.SecondName
 WHERE a.Id != b.Id;
 
+# Question 3
+
 -   Write a query to count the number of actors who share the same second name. Print the second name along with the count?
 
 Let’s _GROUP BY_ second name first and see what we get:
@@ -55,6 +61,8 @@ ON a.SecondName = b.SecondName
 WHERE a.Id != b.Id
 group by a.SecondName;
 
+# Question 4
+
 -   Write a query to display all those actors who have acted in at least one movie.
 
 The data we are interested in resides in the two tables Cast and Actors. If we join the two tables, we’ll get all the actors that have at least one movie to their name. We can then grab the names of the actors from the joined tables and print them. There’s a caveat though; we may print an actor’s name if the actor has multiple movies, therefore, we must use the _DISTINCT_ clause. The query is shown below:
@@ -62,6 +70,8 @@ The data we are interested in resides in the two tables Cast and Actors. If we j
 SELECT DISTINCT CONCAT(FirstName, " ", SecondName)
 AS Actors_Acted_In_AtLeast_aMovie
 FROM Actors INNER JOIN Cast ON Id = ActorId;
+
+# Question 5
 
 -   As a corollary to the previous question, can you find the different ways of listing those aspiring actors who haven’t acted in any movie yet?
 
